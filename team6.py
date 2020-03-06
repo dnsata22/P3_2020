@@ -30,13 +30,18 @@ def move(my_history, their_history, my_score, their_score):
 
 
      # We collude every other round or betray every round after the 50th (first round is round #0).
-    if len(their_history)<50:
+    my_history= 50 
+    if len(my_history)<50:
         if  len(my_history)%2 == 0:
             return 'c'
         else:
             return 'b'   
-    else: 
-         return 'b'
+    their_history=50
+    if len(their_history)<50:
+        if len(their_history)%2==0:
+            return'b'
+        else: 
+            return'c'
         
 
     
@@ -61,19 +66,19 @@ if __name__ == '__main__':
     # Test 1: Betray on first move.
     if test_move(my_history='',
               their_history='', 
-              my_score=0,
-              their_score=0,
+              my_score= '300',
+              their_score= '-400',
               result='b'):
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
-    test_move(my_history='bbb',
-              their_history='ccc', 
+    test_move(my_history='cbc',
+              their_history='cbc', 
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
               # that is relevant to the test of move(). Here,
               # the simulation (if working correctly) would have awarded 
               # 300 to me and -750 to them. This test will pass if and only if
               # move('bbb', 'ccc', 0, 0) returns 'b'.
-              my_score=0, 
-              their_score=0,
+              my_score='200', 
+              their_score='300',
               result='b')             
