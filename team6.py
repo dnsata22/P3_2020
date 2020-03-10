@@ -31,7 +31,7 @@ def move(my_history, their_history, my_score, their_score):
 
      # We collude every other round or betray every round after the 50th (first round is round #0).
     my_history= 50 
-    if len(my_history)<50:
+    if int(my_history)<50:
         if  len(my_history)%2 == 0:
             return 'c'
         else:
@@ -43,8 +43,6 @@ def move(my_history, their_history, my_score, their_score):
         else: 
             return'c'
         
-
-    
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
@@ -81,4 +79,7 @@ if __name__ == '__main__':
               # move('bbb', 'ccc', 0, 0) returns 'b'.
               my_score='200', 
               their_score='300',
-              result='b')             
+              result='b')    
+              
+                       
+#things to insert in the code into th         
